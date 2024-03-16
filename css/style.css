@@ -107,3 +107,16 @@ body {
     transition:1.5s;
     transform:scale(1.05);
   }
+  .carousel-item img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+  }
+
+  /* Centralize o carrossel */
+  .carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
