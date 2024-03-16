@@ -81,9 +81,6 @@ body {
   .dropdown-toggle{
       font-size:20px;
   }
-  .dropdown{
-      margin-right:50px;
-  }
   .dropdown-menu{
       font-size:18px;
       text-align:center;
