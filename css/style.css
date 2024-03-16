@@ -14,7 +14,7 @@ body {
   }
   .main-section {
     padding: 50px 0;
-    font-size:22px;
+    font-size:18px;
   }
   .item {
     text-align: center;
@@ -37,7 +37,7 @@ body {
   }
   .section-text {
     margin-top: 50px;
-    font-size:22px;
+    font-size:18px;
   }
   @media (max-width: 768px) {
     .header-text {
