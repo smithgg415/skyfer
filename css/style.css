@@ -104,3 +104,6 @@ body {
   footer p {
     margin-bottom: 0;
   }
+  .img-fluid{
+    border-radius:12px;
+  }
