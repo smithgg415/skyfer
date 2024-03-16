@@ -107,3 +107,7 @@ body {
   .img-fluid{
     border-radius:12px;
   }
+  .img-fluid:hover{
+    transition:1.5s;
+    transform:scale(1.10);
+  }
