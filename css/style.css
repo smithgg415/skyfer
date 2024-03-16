@@ -67,7 +67,7 @@ body {
       transition:1.2s;
   }
   .nav-item, .dropdown{
-      margin:10px ;
+      margin:2px ;
       background-color:#007bff;
       width:140px;
       border-radius:15px;
