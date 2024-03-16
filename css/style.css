@@ -109,5 +109,5 @@ body {
   }
   .img-fluid:hover{
     transition:1.5s;
-    transform:scale(1.10);
+    transform:scale(1.05);
   }
