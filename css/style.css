@@ -65,7 +65,7 @@ body {
       background-color:green;
       transition:1.2s;
   }
-  .nav-item, .nav-item1 .dropdown{
+  .nav-item, .nav-item1{
       margin:2px ;
       background-color:#007bff;
       width:140px;
