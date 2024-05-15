@@ -1,171 +1,207 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-    body{
-        background-color:#d6dee2;
-        
-        display:flex;
-        justify-content:center;
-        
-        font-family:"arial";
-    }
-    .container{
-        height:500px;
-        
-        display:flex;
-        
-        background-color:white;
-        
-        border-radius:20px;
-        
-        position:absolute;
-        
-        top:100px;
-    }
-    .message{
-        animation:rolar 1s linear;
-        position:relative;
-        left:0px;
-        width:400px;
-        height:500px;
-        
-        background-color:#03bb55;
-        color:white;
-        
-        display:flex;
-        flex-direction:column;
-        
-        text-align:center;
-        
-        margin-right:-12px;
-        
-        padding-top:140px;
-        
-        border-radius: 0px 20px 20px 0px ;
-    }
-    form{
-        display:flex;
-        flex-direction:column;
-        
-        padding-top:120px;
-        
-        margin:0 auto;
-        margin-top:100px;
-    }
-    input{
-        border:none;
-        
-        background-color:#d6dee2;
-        
-        width:340px;
-        height:50px;
-        
-        margin-top:8px;
-        padding-left:30px;
 
-    }
-    .title{
-        font-weight:bold;
-        
-        text-align:center;
-        margin-top:-150px;
-        
-        color:#30bb55;
-        
-    }
-    .signUp{
-        width:220px;
-        
-        font-weight:bold;
-        
-        margin:0 auto;
-        
-        color:white;
-        background-color:#03bb55;
-        
-        border:2px solid white;
-        border-radius:20px;
-        
-        padding:5px;
-        
-        margin-top:20px;
-        
-    }
-    .signUp:hover{
-        transform:scale(1.1);
-        transition:0.7s;
-        box-shadow:0 0 0.2em gray;
-    }
-    .itens{
-        display:flex;
-        flex-direction:row;
-        
-        margin:0 auto;
-    }
-    .item{
-        width:40px;
-        height:40px;
-        
-        margin-left:10px;
-        
-        border:2px solid #d6dee2;
-        border-radius:50%;
-        
-        margin-bottom:20px;
-        margin-top:20px;
-    }
-    i{
-        
-        color:#d6dee2;
-        
-        font-size:23px;
-        
-        margin-left:7px;
-        position:relative;
-        top:3px;
-    }
-    @keyframes rolar{
-        from{
-            left:-560px;
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #d6dee2;
+
+            display: flex;
+            justify-content: center;
+
+            font-family: "arial";
         }
-        to{
-            left:0px;
+
+        .container {
+            height: 500px;
+
+            display: flex;
+
+            background-color: white;
+
+            border-radius: 20px;
+
+            position: absolute;
+
+            top: 100px;
         }
-    }
+
+        .message {
+            animation: rolar 1s linear;
+            position: relative;
+            left: 0px;
+            width: 400px;
+            height: 500px;
+
+            background-color: #03bb55;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+
+            text-align: center;
+
+            margin-right: -12px;
+
+            padding-top: 140px;
+
+            border-radius: 0px 20px 20px 0px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            padding-top: 120px;
+
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        input {
+            border: none;
+
+            background-color: #d6dee2;
+
+            width: 340px;
+            height: 50px;
+
+            margin-top: 8px;
+            padding-left: 30px;
+
+        }
+
+        .title {
+            font-weight: bold;
+
+            text-align: center;
+            margin-top: -150px;
+
+            color: #30bb55;
+
+        }
+
+        .signUp {
+            width: 220px;
+
+            font-weight: bold;
+
+            margin: 0 auto;
+
+            color: white;
+            background-color: #03bb55;
+
+            border: 2px solid white;
+            border-radius: 20px;
+
+            padding: 5px;
+
+            margin-top: 20px;
+
+        }
+
+        .signUp:hover {
+            transform: scale(1.1);
+            transition: 0.7s;
+            box-shadow: 0 0 0.2em gray;
+        }
+
+        .itens {
+            display: flex;
+            flex-direction: row;
+
+            margin: 0 auto;
+        }
+
+        .item {
+            width: 40px;
+            height: 40px;
+
+            margin-left: 10px;
+
+            border: 2px solid #d6dee2;
+            border-radius: 50%;
+
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        i {
+
+            color: #d6dee2;
+
+            font-size: 23px;
+
+            margin-left: 7px;
+            position: relative;
+            top: 3px;
+        }
+
+        @keyframes rolar {
+            from {
+                left: -560px;
+            }
+
+            to {
+                left: 0px;
+            }
+        }
     </style>
-    </head>
-    <body>
-        <div class="container">
-            <form>
-                <h3 class="title">Entre em sua Conta:</h3>
-                <div class="itens">
-                    <div class="item">
-                        <i class="bi bi-facebook"></i>
-                    </div>
-                    <div class="item">
-                        <i class="bi bi-google"></i>
-                    </div>
-                    <div class="item">
-                        <i class="bi bi-linkedin"></i>
-                    </div>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h3 class="title">Entre em sua Conta:</h3>
+            <div class="itens">
+                <div class="item">
+                    <i class="bi bi-facebook"></i>
                 </div>
-                <input type="nome" placeholder="Email">
-                <input type="nome" placeholder="Senha">
-                <button class="signUp" type="submit">
-                    Sign Up
-                </button>
-            </form>
-            
-            <div class="message">
-                <h3>Está pronto para logar?</h3>
-                <p>Falta apenas isso para a diversão começar!</p>
-                <i class="bi bi-chat-square" style="font-size:80px"></i>
+                <div class="item">
+                    <i class="bi bi-google"></i>
+                </div>
+                <div class="item">
+                    <i class="bi bi-linkedin"></i>
+                </div>
             </div>
+            <input type="text" placeholder="Email:" id="email">
+            <input type="password" placeholder="Senha:" id="senha">
+            <button class="signUp" type="submit" onclick="login()">
+                Sign Up
+            </button>
+        </form>
+
+        <div class="message">
+            <h3>Está pronto para logar?</h3>
+            <p>Falta apenas isso para a diversão começar!</p>
+            <i class="bi bi-chat-square" style="font-size:80px"></i>
         </div>
-        
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    </body>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+
+            var dados = ["lfgiacomellirodrigues@gmail.com", "123456", "luís"];
+
+            for(i = 0; i < dados.length; i++){
+                if(dados[0] == email && dados[1] == senha){
+                    alert("Login feito com sucesso! Bem-Vindo "+ dados[2])
+                }
+                else{
+                    alert("Email ou senha incorretos.")
+                }
+            }
+}
+    </script>
+
+</body>
+
 </html>
