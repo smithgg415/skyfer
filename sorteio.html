@@ -59,7 +59,7 @@
         <form>
             <div class="form-group">
                 <label for="qtde">Quantidade de nomes (deve ser par)</label>
-                <input type="number" class="form-control col-6" placeholder="Quantidade de nomes" id="qtde" minlength="0">
+                <input type="number" class="form-control" placeholder="Quantidade de nomes" id="qtde" minlength="0">
             </div>
             <button type="button" class="btn btn-primary" onclick="abrirModal()">Vamos Sortear?! <i class="fa fa-ticket"></i></button>
         </form>
@@ -144,7 +144,6 @@
             totalNomes = qtde;
             $('#nameModal').modal('show');
         }
-
         function adicionarNome() {
             let nome = document.getElementById("nome").value;
             let genero = document.getElementById("genero").value;
