@@ -122,7 +122,6 @@
         let qtde = 0;
         let nomesMasculinos = [];
         let nomesFemininos = [];
-        let duplas = [];
         let totalNomes = 0;
         let countdownInterval;
 
@@ -181,35 +180,16 @@
             nomesMasculinos = nomesMasculinos.sort(() => Math.random() - 0.5);
             nomesFemininos = nomesFemininos.sort(() => Math.random() - 0.5);
 
+            let resultadoHTML = '<table class="table table-striped"><thead><tr><th>Pessoa 01 da dupla</th><th>Pessoa 02 da dupla</th></tr></thead><tbody>';
             while (nomesMasculinos.length > 0 && nomesFemininos.length > 0) {
-                duplas.push([nomesMasculinos.pop(), nomesFemininos.pop()]);
+                resultadoHTML += <tr><td>${nomesMasculinos.pop()}</td><td>${nomesFemininos.pop()}</td></tr>;
             }
             while (nomesMasculinos.length > 1) {
-                duplas.push([nomesMasculinos.pop(), nomesMasculinos.pop()]);
+                resultadoHTML += <tr><td>${nomesMasculinos.pop()}</td><td>${nomesMasculinos.pop()}</td></tr>;
             }
             while (nomesFemininos.length > 1) {
-                duplas.push([nomesFemininos.pop(), nomesFemininos.pop()]);
+                resultadoHTML += <tr><td>${nomesFemininos.pop()}</td><td>${nomesFemininos.pop()}</td></tr>;
             }
-
-            gerarTabelaJogos();
-        }
-
-        function gerarTabelaJogos() {
-            let resultadoHTML = '<table class="table table-striped"><thead><tr><th>Fase</th><th>Dupla 1</th><th>Dupla 2</th></tr></thead><tbody>';
-            let fases = ["Quartas de Final", "Semifinal", "Final"];
-            let duplasRestantes = duplas.slice();
-
-            for (let fase of fases) {
-                if (duplasRestantes.length <= 1) break;
-
-                let jogosPorFase = duplasRestantes.length / 2;
-                for (let i = 0; i < jogosPorFase; i++) {
-                    let dupla1 = duplasRestantes.pop().join(' e ');
-                    let dupla2 = duplasRestantes.length > 0 ? duplasRestantes.pop().join(' e ') : "Sem Oponente";
-                    resultadoHTML += `<tr><td>${fase}</td><td>${dupla1}</td><td>${dupla2}</td></tr>`;
-                }
-            }
-
             resultadoHTML += '</tbody></table>';
             document.getElementById("resultado").innerHTML = resultadoHTML;
         }
