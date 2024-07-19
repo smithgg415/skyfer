@@ -6,17 +6,52 @@
     <title>Torneio de Beach Tennis Piquerobi</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            overflow-x: hidden; /* Evita a barra de rolagem horizontal */
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+        .topbar {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            margin-top: auto;
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="topbar">
         <h1 class="title">Torneio de Beach Tennis Piquerobi</h1>
     </div>
     <div class="container text-center">
-        <h2 class="mb-4">Sorteio de Nomes em Duplas Mistas <i class="fa fa-random"></i></h2>
+        <h1 class="mb-4">Sorteio de Nomes em Duplas Mistas <i class="fa fa-random"></i></h1>
         <form>
             <div class="form-group">
                 <label for="qtde">Quantidade de nomes (deve ser par)</label>
+                <input type="number" class="form-control" placeholder="Quantidade de nomes" id="qtde">
             </div>
             <button type="button" class="btn btn-primary" onclick="abrirModal()">Vamos Sortear?! <i class="fa fa-ticket"></i></button>
         </form>
@@ -83,7 +118,101 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script/script.js">
+    <script>
+        let qtde = 0;
+        let nomesMasculinos = [];
+        let nomesFemininos = [];
+        let duplas = [];
+        let totalNomes = 0;
+        let countdownInterval;
+
+        function abrirModal() {
+            qtde = document.getElementById("qtde").value;
+            
+            if (qtde % 2 !== 0 || qtde <= 0) {
+                alert("A quantidade de nomes deve ser par e maior que zero!");
+                return;
+            }
+
+            totalNomes = qtde;
+            $('#nameModal').modal('show');
+        }
+
+        function adicionarNome() {
+            let nome = document.getElementById("nome").value;
+            let genero = document.getElementById("genero").value;
+
+            if (nome && (genero === 'M' || genero === 'F')) {
+                if (genero === 'M') {
+                    nomesMasculinos.push(nome);
+                } else {
+                    nomesFemininos.push(nome);
+                }
+                qtde--;
+
+                if (qtde > 0) {
+                    document.getElementById("nome").value = "";
+                    document.getElementById("genero").value = "M";
+                } else {
+                    $('#nameModal').modal('hide');
+                    iniciarContagemRegressiva();
+                }
+            } else {
+                alert("Por favor, insira um nome válido e selecione um gênero.");
+            }
+        }
+
+        function iniciarContagemRegressiva() {
+            let tempo = 5; // Tempo em segundos
+            document.getElementById("countdown").innerText = `Sorteio em: ${tempo}`;
+            countdownInterval = setInterval(() => {
+                tempo--;
+                if (tempo > 0) {
+                    document.getElementById("countdown").innerText = `Sorteio em: ${tempo}`;
+                } else {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerText = "";
+                    realizarSorteio();
+                }
+            }, 1000);
+        }
+
+        function realizarSorteio() {
+            nomesMasculinos = nomesMasculinos.sort(() => Math.random() - 0.5);
+            nomesFemininos = nomesFemininos.sort(() => Math.random() - 0.5);
+
+            while (nomesMasculinos.length > 0 && nomesFemininos.length > 0) {
+                duplas.push([nomesMasculinos.pop(), nomesFemininos.pop()]);
+            }
+            while (nomesMasculinos.length > 1) {
+                duplas.push([nomesMasculinos.pop(), nomesMasculinos.pop()]);
+            }
+            while (nomesFemininos.length > 1) {
+                duplas.push([nomesFemininos.pop(), nomesFemininos.pop()]);
+            }
+
+            gerarTabelaJogos();
+        }
+
+        function gerarTabelaJogos() {
+            let resultadoHTML = '<table class="table table-striped"><thead><tr><th>Fase</th><th>Dupla 1</th><th>Dupla 2</th></tr></thead><tbody>';
+            let fases = ["Quartas de Final", "Semifinal", "Final"];
+            let duplasRestantes = duplas.slice();
+
+            for (let fase of fases) {
+                if (duplasRestantes.length <= 1) break;
+
+                let jogosPorFase = duplasRestantes.length / 2;
+                for (let i = 0; i < jogosPorFase; i++) {
+                    let dupla1 = duplasRestantes.pop().join(' e ');
+                    let dupla2 = duplasRestantes.length > 0 ? duplasRestantes.pop().join(' e ') : "Sem Oponente";
+                    resultadoHTML += `<tr><td>${fase}</td><td>${dupla1}</td><td>${dupla2}</td></tr>`;
+                }
+            }
+
+            resultadoHTML += '</tbody></table>';
+            document.getElementById("resultado").innerHTML = resultadoHTML;
+        }
     </script>
 </body>
 </html>
