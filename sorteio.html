@@ -40,6 +40,14 @@
             font-size: 2rem;
             margin-top: 20px;
         }
+        .form-group{
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+        }
+        .form-control{
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -47,11 +55,11 @@
         <h1 class="title">Torneio de Beach Tennis Piquerobi</h1>
     </div>
     <div class="container text-center">
-        <h1 class="mb-4">Sorteio de Nomes em Duplas Mistas <i class="fa fa-random"></i></h1>
+        <h2 class="mb-4">Sorteio de Nomes em Duplas Mistas <i class="fa fa-random"></i></h2>
         <form>
             <div class="form-group">
                 <label for="qtde">Quantidade de nomes (deve ser par)</label>
-                <input type="number" class="form-control" placeholder="Quantidade de nomes" id="qtde">
+                <input type="number" class="form-control col-6" placeholder="Quantidade de nomes" id="qtde" minlength="0">
             </div>
             <button type="button" class="btn btn-primary" onclick="abrirModal()">Vamos Sortear?! <i class="fa fa-ticket"></i></button>
         </form>
